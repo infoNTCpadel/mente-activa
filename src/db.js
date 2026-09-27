@@ -11,6 +11,7 @@ let db = null;
 export function getDb() {
   if (db) return db;
   db = new DatabaseSync(DB_PATH);
+  db.exec('PRAGMA journal_mode = WAL;'); // lecturas/escrituras concurrentes (seed con el servidor en marcha)
   db.exec(`
     CREATE TABLE IF NOT EXISTS centers (
       id INTEGER PRIMARY KEY,
