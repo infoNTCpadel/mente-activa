@@ -1,0 +1,72 @@
+:root {
+  --fondo: #F7EFE3;
+  --tinta: #2B2B29;
+  --acento: #7A2036;
+  --acento2: #E8703A;
+  --ok: #2E7D32;
+  --ko: #C62828;
+  --tarjeta: #FFFFFF;
+}
+* { box-sizing: border-box; }
+html { font-size: 22px; }
+body {
+  margin: 0; background: var(--fondo); color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--acento); color: #fff; padding: 0.7rem 1rem;
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar a { color: #fff; text-decoration: none; font-size: 1.1rem; }
+.topbar .marca { font-weight: 800; font-size: 1.3rem; }
+.topbar nav a { margin-left: 1rem; }
+.contenedor { max-width: 900px; margin: 0 auto; padding: 1rem 1rem 4rem; }
+h1 { font-size: 2rem; margin: 0.5rem 0; }
+.sub { font-size: 1.1rem; color: #555; }
+.semana { background: #eee; border-radius: 1rem; padding: 0.1rem 0.6rem; font-size: 0.9rem; }
+.tarjetas { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 1rem; }
+.tarjeta {
+  background: var(--tarjeta); border-radius: 1rem; padding: 1.2rem;
+  text-decoration: none; color: inherit; text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 0.4rem;
+}
+.tarjeta .icono { font-size: 3rem; }
+.tarjeta .t { font-size: 1.5rem; font-weight: 800; }
+.tarjeta .d { color: #666; }
+.btn, .btn-opcion {
+  display: inline-block; min-height: 72px; font-size: 1.4rem; font-weight: 700;
+  background: var(--acento2); color: #fff; border: none; border-radius: 1rem;
+  padding: 0.8rem 1.2rem; cursor: pointer; text-decoration: none; text-align: center;
+}
+.btn:active, .btn-opcion:active { transform: scale(0.98); }
+.btn-sec { background: var(--acento); }
+.btn-audio { background: #555; min-height: 60px; font-size: 1.1rem; margin-top: 1rem; }
+.btn-opcion { background: #fff; color: var(--tinta); border: 3px solid var(--acento); width: 100%; }
+.btn-opcion.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+.btn-opcion.ko { background: var(--ko); border-color: var(--ko); color: #fff; }
+.btn-opcion:disabled { opacity: 1; cursor: default; }
+.opciones { display: grid; gap: 0.8rem; margin-top: 1rem; }
+.pregunta { font-size: 1.8rem; }
+.progreso { color: #777; font-size: 1rem; }
+.grande { font-size: 1.5rem; }
+.ayuda { background: #FFF8E1; border-radius: 0.8rem; padding: 0.8rem; margin-top: 1.5rem; }
+.volver { display: inline-block; margin: 0.5rem 0; font-size: 1.1rem; color: var(--acento); }
+.juego { margin-top: 0.5rem; }
+.cartas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 1rem; }
+.carta {
+  min-height: 110px; font-size: 2.6rem; border-radius: 1rem; border: 3px solid var(--acento);
+  background: var(--acento); color: #fff; cursor: pointer;
+}
+.carta.abierta, .carta.encontrada { background: #fff; color: var(--tinta); }
+.carta.encontrada { border-color: var(--ok); background: #E8F5E9; }
+.carta small { display: block; font-size: 1rem; }
+.carta:disabled { cursor: default; }
+.equipos { display: flex; gap: 1rem; justify-content: center; margin: 0.6rem 0; }
+.puntos { font-size: 2.5rem; font-weight: 800; }
+.tabla { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 1.05rem; }
+.tabla th, .tabla td { border-bottom: 2px solid #ddd; padding: 0.6rem; text-align: left; }
+.form-codigo { display: grid; gap: 0.8rem; max-width: 420px; margin-top: 1rem; }
+.form-codigo input { min-height: 72px; font-size: 1.4rem; border-radius: 0.8rem; border: 3px solid var(--acento); padding: 0 1rem; }
+@media (max-width: 600px) { html { font-size: 20px; } }

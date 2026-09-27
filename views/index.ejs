@@ -1,0 +1,13 @@
+<h1>Sesión de hoy</h1>
+<p class="sub">Tres juegos cortos. Toca uno para empezar. <span class="semana">Semana <%= week %></span></p>
+<div class="tarjetas">
+  <% for (const [id, g] of Object.entries(games)) { %>
+    <a class="tarjeta" href="/jugar/<%= id %>">
+      <span class="icono"><%= g.icono %></span>
+      <span class="t"><%= g.titulo %></span>
+      <span class="d"><%= g.desc %></span>
+      <span class="btn">Jugar</span>
+    </a>
+  <% } %>
+</div>
+<p class="ayuda">🔊 Todos los juegos se pueden escuchar. Solo hay que tocar la pantalla.</p>

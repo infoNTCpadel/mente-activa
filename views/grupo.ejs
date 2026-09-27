@@ -1,0 +1,26 @@
+<a class="volver" href="/">← Volver</a>
+<h1>👥 Modo grupo</h1>
+<p class="sub">Para la tele del centro. El animador dirige y el grupo responde en voz alta.</p>
+<div class="tarjetas">
+  <% for (const [id, g] of Object.entries(games)) { %>
+    <div class="tarjeta">
+      <span class="icono"><%= g.icono %></span>
+      <span class="t"><%= g.titulo %></span>
+      <div class="equipos">
+        <div><strong>Equipo A</strong><div class="puntos" id="pa-<%= id %>">0</div>
+          <button class="btn" onclick="punto('<%= id %>','a')">+1 punto</button></div>
+        <div><strong>Equipo B</strong><div class="puntos" id="pb-<%= id %>">0</div>
+          <button class="btn" onclick="punto('<%= id %>','b')">+1 punto</button></div>
+      </div>
+      <a class="btn btn-sec" href="/jugar/<%= id %>">Abrir juego</a>
+    </div>
+  <% } %>
+</div>
+<script>
+const pts = {};
+function punto(id, eq) {
+  pts[id] = pts[id] || {a:0,b:0};
+  pts[id][eq]++;
+  document.getElementById('p'+eq+'-'+id).textContent = pts[id][eq];
+}
+</script>

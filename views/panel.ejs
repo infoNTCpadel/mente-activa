@@ -1,0 +1,19 @@
+<a class="volver" href="/">← Volver</a>
+<h1>📋 Panel del animador</h1>
+<p class="sub">Actividad de hoy en <strong><%= center ? center.name : '—' %></strong></p>
+<% if (!plays.length) { %>
+  <p class="ayuda">Aún no hay partidas hoy. Cuando alguien juegue, aparecerá aquí.</p>
+<% } else { %>
+  <table class="tabla">
+    <tr><th>Hora</th><th>Quién</th><th>Juego</th><th>Aciertos</th><th>Modo</th></tr>
+    <% for (const p of plays) { %>
+      <tr>
+        <td><%= p.created_at.slice(11,16) %></td>
+        <td><%= p.player_alias %></td>
+        <td><%= p.game %></td>
+        <td><%= p.score %>/<%= p.total %></td>
+        <td><%= p.mode %></td>
+      </tr>
+    <% } %>
+  </table>
+<% } %>
